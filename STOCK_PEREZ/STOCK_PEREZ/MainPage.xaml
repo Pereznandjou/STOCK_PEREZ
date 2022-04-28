@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="STOCK_PEREZ.MainPage"
+             xmlns:viewModels1="clr-namespace:STOCK_PEREZ.ViewModel">
+
+    <ContentPage.BindingContext>
+        <viewModels1:DeliveryViewModel/>
+    </ContentPage.BindingContext>
+
+    <CarouselView ItemsSource="{Binding Deliverys}"
+               >
+        <CarouselView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Frame HasShadow="True"
+                       BorderColor="DarkGray"
+                       CornerRadius="5"
+                       Margin="20"
+                       HeightRequest="300"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand">
+                        <StackLayout>
+                            <Label Text="{Binding reference}"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+
+                            <Label Text="{Binding PlaceOfDelivery}"
+                               HorizontalOptions="Center" />
+                            <Label Text="{Binding Date}"
+                               FontAttributes="Italic"
+                               HorizontalOptions="Center"
+                               MaxLines="5"
+                               LineBreakMode="TailTruncation" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
+</ContentPage>
